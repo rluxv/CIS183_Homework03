@@ -1,6 +1,7 @@
 package com.example.homework03_program01;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -18,7 +19,7 @@ public class activity_register extends AppCompatActivity
         setContentView(R.layout.activity_register);
 
         registerItems();
-
+        registerEventListeners();
     }
 
     public void registerItems()
@@ -31,6 +32,23 @@ public class activity_register extends AppCompatActivity
         et_j_password = findViewById(R.id.et_v_r_password);
         btn_j_addEmployee = findViewById(R.id.btn_v_r_addEmployee);
         btn_j_returnToMain = findViewById(R.id.btn_v_r_returnToMain);
+    }
+
+    public void registerEventListeners()
+    {
+        returnToMainButtonEvent();
+    }
+    public void returnToMainButtonEvent()
+    {
+        btn_j_returnToMain.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                //this closes the activity and takes us back to the previous activity.
+                finish();
+            }
+        });
     }
 
 }
