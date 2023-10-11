@@ -2,6 +2,7 @@ package com.example.homework03_program01;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,6 +14,7 @@ public class MainActivity extends AppCompatActivity
 
     Button btn_j_addEmployee;
     ListView lv_j_listEmployees;
+    Intent int_j_activity_register;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity
     {
         btn_j_addEmployee = findViewById(R.id.btn_v_addEmployee);
         lv_j_listEmployees = findViewById(R.id.lv_v_employeeList);
+        int_j_activity_register = new Intent(MainActivity.this, activity_register.class);
     }
 
     private void registerEvents()
@@ -42,7 +45,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-
+                startActivity(int_j_activity_register);
             }
         });
     }
