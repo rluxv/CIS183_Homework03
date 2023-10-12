@@ -51,4 +51,15 @@ public class activity_register extends AppCompatActivity
         });
     }
 
+    public boolean textboxesFilled()
+    {
+
+
+        return false;
+    }
+    public void registerUser()
+    {
+
+    }
+
 }

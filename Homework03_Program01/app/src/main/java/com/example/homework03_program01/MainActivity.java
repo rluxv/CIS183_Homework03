@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity
     Button btn_j_addEmployee;
     ListView lv_j_listEmployees;
     Intent int_j_activity_register;
+    EmployeeData empData;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         registerItems();
         registerEvents();
+        empData = new EmployeeData();
+        empData.initializeList();
     }
 
     private void registerItems()

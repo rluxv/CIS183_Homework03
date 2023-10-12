@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class EmployeeData
 {
-    private static ArrayList<Employee> employeeArrayList;
+    public static ArrayList<Employee> employeeArrayList;
 
     public void initializeList()
     {
@@ -16,5 +16,11 @@ public class EmployeeData
         return employeeArrayList;
     }
 
+    public boolean usernameAlreadyExists()
+    {
+
+
+        return false;
+    }
 
 }
