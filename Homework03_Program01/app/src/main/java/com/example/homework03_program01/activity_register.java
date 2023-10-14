@@ -12,14 +12,17 @@ public class activity_register extends AppCompatActivity
 
     EditText et_j_fName, et_j_lName, et_j_email, et_j_age, et_j_username, et_j_password;
     Button btn_j_addEmployee, btn_j_returnToMain;
+
+    DatabaseHelper dbHelper;
+
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
         registerItems();
         registerEventListeners();
+
     }
 
     public void registerItems()
@@ -37,6 +40,7 @@ public class activity_register extends AppCompatActivity
     public void registerEventListeners()
     {
         returnToMainButtonEvent();
+        registerButtonEvent();
     }
     public void returnToMainButtonEvent()
     {
@@ -51,11 +55,61 @@ public class activity_register extends AppCompatActivity
         });
     }
 
+    public void registerButtonEvent()
+    {
+        btn_j_addEmployee.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                if(textboxesFilled())
+                {
+                    //Register Employee
+                }
+            }
+        });
+    }
+
     public boolean textboxesFilled()
     {
+        boolean returnStatement = true;
+        if(et_j_fName.getText().toString().equals(""))
+        {
+            et_j_fName.setError("Text must not be blank.");
+            returnStatement = false;
+        }
 
+        if(et_j_lName.getText().toString().equals(""))
+        {
+            et_j_lName.setError("Text must not be blank.");
+            returnStatement = false;
+        }
 
-        return false;
+        if(et_j_username.getText().toString().equals(""))
+        {
+            et_j_username.setError("Text must not be blank.");
+            returnStatement = false;
+        }
+
+        if(et_j_email.getText().toString().equals(""))
+        {
+            et_j_email.setError("Text must not be blank.");
+            returnStatement = false;
+        }
+
+        if(et_j_password.getText().toString().equals(""))
+        {
+            et_j_password.setError("Text must not be blank.");
+            returnStatement = false;
+        }
+
+        if(et_j_age.getText().toString().equals(""))
+        {
+            et_j_age.setError("Text must not be blank.");
+            returnStatement = false;
+        }
+
+        return returnStatement;
     }
     public void registerUser()
     {
