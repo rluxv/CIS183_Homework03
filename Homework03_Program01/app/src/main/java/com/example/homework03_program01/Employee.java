@@ -1,6 +1,8 @@
 package com.example.homework03_program01;
 
-public class Employee
+import java.io.Serializable;
+
+public class Employee implements Serializable
 {
     private String username, password, firstname, lastname, email, age;
 
