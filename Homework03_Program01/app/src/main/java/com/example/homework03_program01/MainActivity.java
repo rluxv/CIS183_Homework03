@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -25,6 +28,32 @@ public class MainActivity extends AppCompatActivity
         registerEvents();
         empData = new EmployeeData();
         empData.initializeList();
+        DatabaseHelper db = new DatabaseHelper(this);
+        Log.d("EmployeesInTableMain", db.numberOfRowsInTable() + "");
+        ArrayList<Employee> employeeArrayList = db.getAllRows();
+        for(int i = 0; i < employeeArrayList.size(); i++)
+        {
+            Log.d("Employee " + i, employeeArrayList.get(i).getUsername());
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 1)
+        {
+            //
+            Log.d("Success", "Success");
+            DatabaseHelper db = new DatabaseHelper(this);
+            Log.d("EmployeesInTableMain", db.numberOfRowsInTable() + "");
+            ArrayList<Employee> employeeArrayList = db.getAllRows();
+            for(int i = 0; i < employeeArrayList.size(); i++)
+            {
+                Log.d("Employee " + i, employeeArrayList.get(i).getUsername());
+            }
+        }
     }
 
     private void registerItems()
@@ -48,7 +77,8 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                startActivity(int_j_activity_register);
+                startActivityForResult(int_j_activity_register, 1);
+                //startActivity(int_j_activity_register);
             }
         });
     }

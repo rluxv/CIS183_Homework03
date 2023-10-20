@@ -1,5 +1,6 @@
 package com.example.homework03_program01;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +23,7 @@ public class activity_register extends AppCompatActivity
         setContentView(R.layout.activity_register);
         registerItems();
         registerEventListeners();
-
+        dbHelper = new DatabaseHelper(this);
     }
 
     public void registerItems()
@@ -50,6 +51,8 @@ public class activity_register extends AppCompatActivity
             public void onClick(View view)
             {
                 //this closes the activity and takes us back to the previous activity.
+                Intent intent = new Intent();
+                setResult(1, intent);
                 finish();
             }
         });
@@ -65,15 +68,22 @@ public class activity_register extends AppCompatActivity
                 if(textboxesFilled())
                 {
                     //Register
-                    String username = et_j_username.getText().toString();
-                    String password = et_j_password.getText().toString();
-                    String firstname = et_j_fName.getText().toString();
-                    String lastname = et_j_lName.getText().toString();
-                    String email = et_j_email.getText().toString();
-                    String age = et_j_age.getText().toString();
-                    Employee employee = new Employee(username, password, firstname, lastname, email, age);
-                    dbHelper.addEmployee(employee);
-                    finish();
+                    if(!dbHelper.usernameExists(et_j_username.getText().toString()))
+                    {
+                        String username = et_j_username.getText().toString();
+                        String password = et_j_password.getText().toString();
+                        String firstname = et_j_fName.getText().toString();
+                        String lastname = et_j_lName.getText().toString();
+                        String email = et_j_email.getText().toString();
+                        String age = et_j_age.getText().toString();
+                        Employee employee = new Employee(username, password, firstname, lastname, email, age);
+                        dbHelper.addEmployee(employee);
+                        clearTextBoxes();
+                    }
+                    else
+                    {
+                        et_j_username.setError("Username already exists");
+                    }
                 }
             }
         });
@@ -120,9 +130,14 @@ public class activity_register extends AppCompatActivity
 
         return returnStatement;
     }
-    public void registerUser()
+    public void clearTextBoxes()
     {
-
+        et_j_age.setText("");
+        et_j_email.setText("");
+        et_j_password.setText("");
+        et_j_username.setText("");
+        et_j_fName.setText("");
+        et_j_lName.setText("");
     }
 
 }

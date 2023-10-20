@@ -1,9 +1,13 @@
 package com.example.homework03_program01;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper
 {
@@ -89,5 +93,66 @@ public class DatabaseHelper extends SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1)
     {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLENAME + ";");
+    }
+
+    @SuppressLint("Range")
+    public ArrayList<Employee> getAllRows()
+    {
+        ArrayList<Employee> listEmployees = new ArrayList<Employee>();
+        String selectQuery = "SELECT * FROM " + TABLENAME + " ORDER BY username;";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        String firstname;
+        String lastname;
+        String username;
+        String password;
+        String email;
+        String age;
+
+        if(cursor.moveToFirst())
+        {
+            do
+            {
+                username = cursor.getString(cursor.getColumnIndex("username"));
+                firstname = cursor.getString(cursor.getColumnIndex("firstname"));
+                lastname = cursor.getString(cursor.getColumnIndex("lastname"));
+                password = cursor.getString(cursor.getColumnIndex("password"));
+                email = cursor.getString(cursor.getColumnIndex("email"));
+                age = cursor.getString(cursor.getColumnIndex("age"));
+
+                listEmployees.add(new Employee(username, password, firstname, lastname, email, age));
+            }
+            while(cursor.moveToNext());
+        }
+
+        db.close();
+
+        return listEmployees;
+    }
+
+    @SuppressLint("Range")
+    public boolean usernameExists(String usernametoCompare)
+    {
+        String selectQuery = "SELECT * FROM " + TABLENAME + " ORDER BY username;";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        String username;
+
+        if(cursor.moveToFirst())
+        {
+            do
+            {
+                username = cursor.getString(cursor.getColumnIndex("username"));
+                if(usernametoCompare.equalsIgnoreCase(username))
+                {
+                    db.close();
+                    return true;
+                }
+            }
+            while(cursor.moveToNext());
+        }
+
+        db.close();
+        return false;
     }
 }
