@@ -64,7 +64,15 @@ public class activity_register extends AppCompatActivity
             {
                 if(textboxesFilled())
                 {
-                    //Register Employee
+                    //Register
+                    String username = et_j_username.getText().toString();
+                    String password = et_j_password.getText().toString();
+                    String firstname = et_j_fName.getText().toString();
+                    String lastname = et_j_lName.getText().toString();
+                    String email = et_j_email.getText().toString();
+                    String age = et_j_age.getText().toString();
+                    Employee employee = new Employee(username, password, firstname, lastname, email, age);
+                    //dbHelper.addEmployee();
                 }
             }
         });

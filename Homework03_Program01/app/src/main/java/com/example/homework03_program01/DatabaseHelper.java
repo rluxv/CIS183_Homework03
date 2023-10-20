@@ -1,6 +1,7 @@
 package com.example.homework03_program01;
 
 import android.content.Context;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -44,6 +45,33 @@ public class DatabaseHelper extends SQLiteOpenHelper
         //Must close database after finished writing
         sqLiteDatabase.close();
     }
+
+    public boolean isDatabaseEmpty()
+    {
+        if(numberOfRowsInTable() == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public int numberOfRowsInTable()
+    {
+        //Look at the database we created
+        //get a readable version.
+        SQLiteDatabase db = this.getReadableDatabase();
+        //store the number of records in the table called TABLENAME
+        int numRows = (int) DatabaseUtils.queryNumEntries(db, TABLENAME);
+
+        //close the database
+        db.close();
+
+        return numRows;
+    }
+
 
     public void deleteEmployee(Employee employee)
     {
