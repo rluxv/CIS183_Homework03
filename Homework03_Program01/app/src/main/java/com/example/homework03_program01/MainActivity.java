@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity
     ListView lv_j_listEmployees;
     Intent int_j_activity_register;
     EmployeeData empData;
+    EmployeeListAdapter employeeListAdapter;
+    ArrayList<Employee> employeeArrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -29,12 +31,21 @@ public class MainActivity extends AppCompatActivity
         empData = new EmployeeData();
         empData.initializeList();
         DatabaseHelper db = new DatabaseHelper(this);
-        Log.d("EmployeesInTableMain", db.numberOfRowsInTable() + "");
-        ArrayList<Employee> employeeArrayList = db.getAllRows();
+        //Log.d("EmployeesInTableMain", db.numberOfRowsInTable() + "");
+        employeeArrayList = db.getAllRows();
         for(int i = 0; i < employeeArrayList.size(); i++)
         {
             Log.d("Employee " + i, employeeArrayList.get(i).getUsername());
         }
+
+        fillListView();
+    }
+
+    public void fillListView()
+    {
+        employeeListAdapter = new EmployeeListAdapter(this, employeeArrayList);
+        //set the listviews adapter
+        lv_j_listEmployees.setAdapter(employeeListAdapter);
     }
 
     @Override
@@ -48,11 +59,8 @@ public class MainActivity extends AppCompatActivity
             Log.d("Success", "Success");
             DatabaseHelper db = new DatabaseHelper(this);
             Log.d("EmployeesInTableMain", db.numberOfRowsInTable() + "");
-            ArrayList<Employee> employeeArrayList = db.getAllRows();
-            for(int i = 0; i < employeeArrayList.size(); i++)
-            {
-                Log.d("Employee " + i, employeeArrayList.get(i).getUsername());
-            }
+            employeeArrayList = db.getAllRows();
+            fillListView();
         }
     }
 
