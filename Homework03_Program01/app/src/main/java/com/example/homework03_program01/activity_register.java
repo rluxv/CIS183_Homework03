@@ -72,7 +72,8 @@ public class activity_register extends AppCompatActivity
                     String email = et_j_email.getText().toString();
                     String age = et_j_age.getText().toString();
                     Employee employee = new Employee(username, password, firstname, lastname, email, age);
-                    //dbHelper.addEmployee();
+                    dbHelper.addEmployee(employee);
+                    finish();
                 }
             }
         });
