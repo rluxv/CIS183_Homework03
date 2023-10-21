@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity
     Button btn_j_addEmployee;
     ListView lv_j_listEmployees;
     Intent int_j_activity_register;
+    Intent int_j_activity_employee_view_update;
     EmployeeData empData;
     EmployeeListAdapter employeeListAdapter;
     ArrayList<Employee> employeeArrayList;
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity
         btn_j_addEmployee = findViewById(R.id.btn_v_addEmployee);
         lv_j_listEmployees = findViewById(R.id.lv_v_employeeList);
         int_j_activity_register = new Intent(MainActivity.this, activity_register.class);
+        int_j_activity_employee_view_update = new Intent(MainActivity.this, EmployeeViewUpdateActivity.class);
     }
 
     private void registerEvents()
@@ -98,7 +100,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
             {
-
+                startActivity(int_j_activity_employee_view_update);
             }
         });
     }

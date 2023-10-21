@@ -6,4 +6,182 @@
     android:layout_height="match_parent"
     tools:context=".EmployeeViewUpdateActivity">
 
+    <EditText
+        android:id="@+id/et_v_evu_password"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="295dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="password"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_v_evu_update"
+        app:layout_constraintEnd_toEndOf="@+id/tv_v_evu_age"
+        app:layout_constraintStart_toStartOf="@+id/tv_v_evu_username"
+        app:layout_constraintTop_toBottomOf="@+id/et_v_evu_age" />
+
+    <TextView
+        android:id="@+id/tv_v_evu_password"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:text="Password"
+        android:textAlignment="textStart"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/et_v_evu_password" />
+
+    <EditText
+        android:id="@+id/et_v_evu_age"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="7dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="age"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/et_v_evu_password"
+        app:layout_constraintEnd_toEndOf="@+id/tv_v_evu_age"
+        app:layout_constraintStart_toStartOf="@+id/et_v_evu_password"
+        app:layout_constraintTop_toBottomOf="@+id/et_v_evu_email" />
+
+    <TextView
+        android:id="@+id/tv_v_evu_age"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:text="Age"
+        android:textAlignment="textStart"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_v_evu_age"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/et_v_evu_age" />
+
+    <EditText
+        android:id="@+id/et_v_evu_email"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="7dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="email"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/et_v_evu_age"
+        app:layout_constraintEnd_toEndOf="@+id/tv_v_evu_age"
+        app:layout_constraintStart_toStartOf="@+id/et_v_evu_age"
+        app:layout_constraintTop_toBottomOf="@+id/et_v_evu_lName" />
+
+    <TextView
+        android:id="@+id/tv_v_evu_email"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:text="Email"
+        android:textAlignment="textStart"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_v_evu_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/et_v_evu_email" />
+
+    <TextView
+        android:id="@+id/tv_v_evu_lastname"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="575dp"
+        android:text="Last Name"
+        android:textAlignment="textStart"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_v_evu_fName" />
+
+    <EditText
+        android:id="@+id/et_v_evu_lName"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="7dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="lName"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/et_v_evu_email"
+        app:layout_constraintEnd_toEndOf="@+id/et_v_evu_email"
+        app:layout_constraintStart_toStartOf="@+id/et_v_evu_email"
+        app:layout_constraintTop_toBottomOf="@+id/tv_v_evu_firstname" />
+
+    <TextView
+        android:id="@+id/tv_v_evu_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="19dp"
+        android:text="usernameHere"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_v_evu_firstname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_v_evu_fName"
+        android:layout_width="281dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="67dp"
+        android:layout_marginBottom="9dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="fName"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_v_evu_lastname"
+        app:layout_constraintEnd_toEndOf="@+id/tv_v_evu_firstname"
+        app:layout_constraintStart_toStartOf="@+id/et_v_evu_lName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_v_evu_firstname"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="9dp"
+        android:text="First Name"
+        android:textAlignment="textStart"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/et_v_evu_lName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_v_evu_username" />
+
+    <Button
+        android:id="@+id/btn_v_evu_update"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="89dp"
+        android:layout_marginBottom="77dp"
+        android:text="Update"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_v_evu_finishactivity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_v_evu_password" />
+
+    <Button
+        android:id="@+id/btn_v_evu_finishactivity"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:text="Done"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_v_evu_update"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_v_evu_update"
+        app:layout_constraintTop_toTopOf="@+id/btn_v_evu_update" />
 </androidx.constraintlayout.widget.ConstraintLayout>
