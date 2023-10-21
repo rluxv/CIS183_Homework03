@@ -17,11 +17,16 @@ public class EmployeeViewUpdateActivity extends AppCompatActivity {
     EditText et_j_firstname, et_j_lastname, et_j_email, et_j_age, et_j_password;
     Button btn_j_update, btn_j_finishactivity;
     private boolean updatingUser;
-    Employee employee = new Employee("usernameTest", "password", "firstnn", "lastnn", "email@email", "22");
+   // Employee employee = new Employee("usernameTest", "password", "firstnn", "lastnn", "email@email", "22");
+    Employee employee;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_view_update);
+
+
+        employee = (Employee) getIntent().getSerializableExtra("Employee");
+
         updatingUser = false;
 
         tv_j_firstname = findViewById(R.id.tv_v_evu_firstname);
