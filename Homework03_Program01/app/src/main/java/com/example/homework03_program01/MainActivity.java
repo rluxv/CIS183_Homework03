@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
             {
                 int_j_activity_employee_view_update.putExtra("Employee", employeeArrayList.get(i));
-                startActivity(int_j_activity_employee_view_update);
+                startActivityForResult(int_j_activity_employee_view_update, 1);
             }
         });
     }

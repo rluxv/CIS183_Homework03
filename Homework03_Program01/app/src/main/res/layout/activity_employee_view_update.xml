@@ -163,8 +163,8 @@
 
     <Button
         android:id="@+id/btn_v_evu_update"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="148dp"
+        android:layout_height="57dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="89dp"
         android:layout_marginBottom="77dp"
@@ -183,5 +183,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/btn_v_evu_update"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_v_evu_update"
-        app:layout_constraintTop_toTopOf="@+id/btn_v_evu_update" />
+        app:layout_constraintTop_toTopOf="@+id/btn_v_evu_update"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

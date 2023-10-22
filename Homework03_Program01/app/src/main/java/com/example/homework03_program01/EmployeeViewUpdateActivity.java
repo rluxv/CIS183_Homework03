@@ -2,8 +2,10 @@ package com.example.homework03_program01;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Layout;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +21,7 @@ public class EmployeeViewUpdateActivity extends AppCompatActivity {
     private boolean updatingUser;
    // Employee employee = new Employee("usernameTest", "password", "firstnn", "lastnn", "email@email", "22");
     Employee employee;
+    DatabaseHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +30,7 @@ public class EmployeeViewUpdateActivity extends AppCompatActivity {
 
         employee = (Employee) getIntent().getSerializableExtra("Employee");
 
+        dbHelper = new DatabaseHelper(this);
         updatingUser = false;
 
         tv_j_firstname = findViewById(R.id.tv_v_evu_firstname);
@@ -132,10 +136,20 @@ public class EmployeeViewUpdateActivity extends AppCompatActivity {
                 if(updatingUser)
                 {
                     updatingUser = false;
+                    btn_j_update.setText("Update");
+                    //Save changes
+                    employee.setAge(et_j_age.getText().toString());
+                    employee.setEmail(et_j_email.getText().toString());
+                    employee.setFirstname(et_j_firstname.getText().toString());
+                    employee.setPassword(et_j_password.getText().toString());
+                    employee.setLastname(et_j_lastname.getText().toString());
+
+                    dbHelper.updateUser(employee);
                 }
                 else
                 {
                     updatingUser = true;
+                    btn_j_update.setText("Save Changes");
                 }
 
                 updateEditTextVisibility();
@@ -151,6 +165,8 @@ public class EmployeeViewUpdateActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
+                Intent intent = new Intent();
+                setResult(1, intent);
                 finish();
             }
         });

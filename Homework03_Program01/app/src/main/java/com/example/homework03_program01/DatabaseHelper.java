@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -154,5 +155,22 @@ public class DatabaseHelper extends SQLiteOpenHelper
 
         db.close();
         return false;
+    }
+
+    public void updateUser(Employee employee)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+            String updateSQL = "UPDATE TABLENAME SET firstname = 'FNAME', lastname = 'LNAME', password = 'PASSWD', age = 'UAGE', email = 'EML' WHERE username = 'USRNME';"
+                    .replace("TABLENAME", TABLENAME)
+                    .replace("FNAME", employee.getFirstname())
+                    .replace("LNAME", employee.getLastname())
+                    .replace("PASSWD", employee.getPassword())
+                    .replace("UAGE", employee.getAge())
+                    .replace("EML", employee.getEmail())
+                    .replace("USRNME", employee.getUsername());
+            db.execSQL(updateSQL);
+
+
+        db.close();
     }
 }

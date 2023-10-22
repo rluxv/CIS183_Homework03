@@ -8,44 +8,50 @@
 
     <Button
         android:id="@+id/btn_v_addEmployee"
-        android:layout_width="386dp"
-        android:layout_height="41dp"
+        android:layout_width="377dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
         android:layout_marginBottom="16dp"
         android:text="Add Employee"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lv_v_employeeList"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/lv_v_employeeList" />
 
     <TextView
         android:id="@+id/tv_v_welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="10dp"
         android:text="Welcome!"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tv_v_selectaUser"
+        app:layout_constraintEnd_toEndOf="@+id/tv_v_selectaUser"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_v_selectaUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="11dp"
         android:text="Select an Employee"
         app:layout_constraintBottom_toTopOf="@+id/lv_v_employeeList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_v_welcome"
-        app:layout_constraintVertical_bias="0.153" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_v_welcome" />
 
     <ListView
         android:id="@+id/lv_v_employeeList"
-        android:layout_width="392dp"
-        android:layout_height="576dp"
-        tools:layout_editor_absoluteX="9dp"
-        tools:layout_editor_absoluteY="88dp" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_v_addEmployee"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_v_selectaUser" />
 </androidx.constraintlayout.widget.ConstraintLayout>
