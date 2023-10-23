@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity
     EmployeeData empData;
     EmployeeListAdapter employeeListAdapter;
     ArrayList<Employee> employeeArrayList;
+    DatabaseHelper db;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity
         registerEvents();
         empData = new EmployeeData();
         empData.initializeList();
-        DatabaseHelper db = new DatabaseHelper(this);
+        db = new DatabaseHelper(this);
         //Log.d("EmployeesInTableMain", db.numberOfRowsInTable() + "");
         employeeArrayList = db.getAllRows();
         for(int i = 0; i < employeeArrayList.size(); i++)
@@ -113,6 +114,9 @@ public class MainActivity extends AppCompatActivity
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l)
             {
+                db.deleteEmployee(employeeArrayList.get(i));
+                employeeArrayList = db.getAllRows();
+                fillListView();
                 return false;
             }
         });

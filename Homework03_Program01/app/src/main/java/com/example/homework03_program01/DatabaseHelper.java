@@ -50,7 +50,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
         //Must close database after finished writing
         sqLiteDatabase.close();
     }
-
+    
     public boolean isDatabaseEmpty()
     {
         if(numberOfRowsInTable() == 0)
