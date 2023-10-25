@@ -94,6 +94,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1)
     {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLENAME + ";");
+        onCreate(sqLiteDatabase);
     }
 
     @SuppressLint("Range")
