@@ -94,7 +94,8 @@ public class EmployeeViewUpdateActivity extends AppCompatActivity {
 
             tv_j_password.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
             tv_j_password.setGravity(Gravity.CENTER);
-            tv_j_password.setText("Password: " + employee.getPassword());
+            String hiddenPassword = "*".repeat(employee.getPassword().length());
+            tv_j_password.setText("Password: " + hiddenPassword);
 
             tv_j_email.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
             tv_j_email.setGravity(Gravity.CENTER);
