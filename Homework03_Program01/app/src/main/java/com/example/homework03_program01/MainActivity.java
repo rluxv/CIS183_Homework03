@@ -1,3 +1,10 @@
+//----------------------------------------------------------------------\
+// Author: Nicholas Frederick
+// Submission Date: Oct 29, 2023
+// Description: Android app that utilizes a database to store employee
+// information, with full CRUD implemented.
+//----------------------------------------------------------------------
+
 package com.example.homework03_program01;
 
 import androidx.appcompat.app.AppCompatActivity;
